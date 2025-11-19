@@ -36,18 +36,23 @@ for (const file of eventFiles) {
   }
 }
 
-client.once("clientReady", () => {
-  console.log(`${client.user.tag} is up and ready!`);
+function discordRPCstatus() {
+  const guild = client.guilds.cache.get('1415012956038627541');
+  const userCount = guild ? guild.memberCount : 0;
 
-  //discordRPC status (WIP)
-  const userCount = client.users.cache.size - 2;
-
+  
   client.user.setActivity({
-    name:`${userCount} Players in MMUCraft`,
+    name:`${userCount - 2} Players in MMUCraft`,
     type: Discord.ActivityType.Watching,
     state: "minecraft.mmu.edu.my",
     details: "MMUCraft",
   });
+}
+
+client.once("clientReady", () => {
+  console.log(`${client.user.tag} is up and ready!`);
+
+  discordRPCstatus();
 });
 
 client.on('interactionCreate', async interaction => {
@@ -100,7 +105,7 @@ client.on('guildMemberAdd', async (member) => {
 
     const welcomer = new Welcomer()
       .setName(member.user.username)
-      .setDiscriminator(`#${member.user.discriminator}`)
+      .setDiscriminator(`Player #${member.guild.memberCount - 2}`)
       .setAvatar(member.user.displayAvatarURL({ extension: 'png', size: 1024 }))
       .setGif(false);
 
@@ -110,12 +115,19 @@ client.on('guildMemberAdd', async (member) => {
       content: `${member} **has joined the world!**`,
       files: [{
         attachment: image,
-        name: 'welcome.png'
+        name: 'Welcome_To_MMUCraft.png'
       }]
     });
   } catch (error) {
     console.error('[Welcomer] Event broke. =>', error);
   }
+
+  discordRPCstatus();
+
+});
+
+client.on('guildMemberRemove', (member) => {
+  discordRPCstatus();
 });
 
 client.login(process.env.BOB_TOKEN);

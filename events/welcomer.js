@@ -16,6 +16,13 @@ if (fs.existsSync(MonocraftFont)) {
   console.error('[Welcomer] Monocraft Font Failed to Import!!!', MonocraftFont);
 }
 
+let bgCounter = 0;
+
+function getNextBg() {
+  bgCounter = (bgCounter % 4) + 1;
+  return bgCounter;
+}
+
 class Welcomer {
   constructor({
     background,
@@ -28,12 +35,13 @@ class Welcomer {
     delay,
     frame_limit
   } = {}) {
-    this.background = background || 'https://cdn.discordapp.com/attachments/950356441070444574/1430657693135143013/yoneyama_mai_ascii_by_helyz.gif?ex=690db10e&is=690c5f8e&hm=0f85950504d3ecb896862e9e720dcf24733de412f14924efa226c7768591ac64&'
+     const bgNum = getNextBg();
+    this.background = background || path.join(__dirname, `../assets/mmucraft_spawnpoint_bg${bgNum}.png`)
     this.name ??= name
     this.discriminator ??= discriminator
     this.avatar ??= avatar
     this.gif ??=gif
-    this.layer = layer || 'https://cdn.discordapp.com/attachments/1029166753311367228/1435910773846310963/layer.png?ex=690daf9e&is=690c5e1e&hm=6dc6836c3a09b99deebc4076acc8e57fd568b017f283df7e2381c41adb0f986f&'
+    this.layer = layer || path.join(__dirname, '../assets/mmucraft_border.png')
     this.blur ??= blur
     this.delay = delay || 100
     this.frame_limit = frame_limit || 30
@@ -78,13 +86,20 @@ class Welcomer {
     this.frame_limit = limit
   }
 
-  async _getImageSize(url) {
-    const data = await axios(url, {
-      responseType: 'arraybuffer'
-    })
+  async _getImageSize(source) {
+  const fs = require('fs');
 
-    return sizeOf(data.data)
+  if (source.startsWith('http://') || source.startsWith('https://')) {
+    const data = await axios(source, {
+      responseType: 'arraybuffer'
+    });
+    return sizeOf(data.data);
+  } else {
+
+    return sizeOf(fs.readFileSync(source));
+
   }
+}
 
   async _renderFrame(frame) {
     const canvas = Canvas.createCanvas(700,250);
@@ -164,7 +179,7 @@ class Welcomer {
     ctx.font = `bold 25px Monocraft`;
     ctx.fillStyle = '#FFFFFF';
 
-    ctx.fillText(`${this.discriminator}`, 278, 162.5);
+    ctx.fillText(`${this.discriminator}`, 278, 160);
 
     let avatar = await Jimp.read(this.avatar);
 

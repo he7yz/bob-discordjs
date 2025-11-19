@@ -14,7 +14,7 @@ module.exports = {
         .setName(interaction.user.username)
         .setDiscriminator(`Player #${interaction.guild.memberCount - 2}`)
         .setAvatar(interaction.user.displayAvatarURL({ extension: 'png', size: 1024 }))
-        .setGif(true);
+        .setGif(false);
 
       const image = await welcomer.generate();
 
@@ -22,7 +22,7 @@ module.exports = {
         content: `hi ${interaction.user} UwU`,
         files: [{
           attachment: image,
-          name: 'welcome.gif'
+          name: 'welcome.png'
         }]
       });
     } catch (error) {
