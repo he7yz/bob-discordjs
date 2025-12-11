@@ -21,6 +21,7 @@ module.exports = {
 
     const member = await interaction.guild.members.fetch(interaction.user.id);
     await member.roles.add("1415363731176554648");
+    await member.roles.add("1440730675786285127");
 
     await interaction.followUp({content:`<:netherstar:1426641072653598761> Welcome To MMUCraft, ${interaction.user}! <:MMUCRAFT:1417945712594915338>`, flags: MessageFlags.Ephemeral});
 
