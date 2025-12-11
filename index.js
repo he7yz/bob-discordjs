@@ -105,7 +105,7 @@ client.on('guildMemberAdd', async (member) => {
 
     const welcomer = new Welcomer()
       .setName(member.user.username)
-      .setDiscriminator(`Player #${member.guild.memberCount - 2}`)
+      .setDiscriminator(`Player #${member.guild.memberCount - 3}`)
       .setAvatar(member.user.displayAvatarURL({ extension: 'png', size: 1024 }))
       .setGif(false);
 

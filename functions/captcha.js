@@ -1,4 +1,12 @@
+const path = require('path');
 const {CaptchaGenerator} = require('captcha-canvas'); //need to install package beforehand via. npm
+const Canvas = require('canvas');
+
+const MonocraftFont = path.join(__dirname, '../fonts/Monocraft.ttf');
+Canvas.registerFont(MonocraftFont, {family: 'Monocraft'});
+
+
+
 const {
   Events,
   AttachmentBuilder,
@@ -25,7 +33,7 @@ async function captcha(text, toReply, author) {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     var outputString = "";
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 6; i++) {
       outputString += alphabet[Math.floor(Math.random() * alphabet.length)];
     }
 
@@ -33,8 +41,8 @@ async function captcha(text, toReply, author) {
   } else capText =text;
 
   const captcha = new CaptchaGenerator()
-  .setDimension(200,450)
-  .setCaptcha({ text: capText, size: 80, color: "#00FF00"})
+  .setDimension(200,800)
+  .setCaptcha({ text: capText, size: 60, color: "#00FF00", font: 'Monocraft'})
   .setDecoy({ opacity: 0.5})
   .setTrace({ color: "#00FF00"})
   .generateSync()
