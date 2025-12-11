@@ -33,7 +33,7 @@ async function captcha(text, toReply, author) {
   } else capText =text;
 
   const captcha = new CaptchaGenerator()
-  .setDimension(300,800)
+  .setDimension(200,450)
   .setCaptcha({ text: capText, size: 80, color: "#00FF00"})
   .setDecoy({ opacity: 0.5})
   .setTrace({ color: "#00FF00"})
@@ -51,7 +51,7 @@ async function captcha(text, toReply, author) {
   .setImage('attachment://captcha.png')
   .setDescription(`<:hardcoreheart:1426657947009679497> ${author}, you must solve the captcha to get access into MMUCraft! **Keep in mind, it is case-sensitive!**`)
   .setTimestamp()
-  .setFooter({ 
+  .setFooter({
     text: 'MMUCraft Discord', 
     iconURL: 'https://cdn.discordapp.com/emojis/1415316601976393788.webp?size=96' 
   });

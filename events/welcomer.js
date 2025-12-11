@@ -119,9 +119,9 @@ class Welcomer {
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(layer, 0, 0, canvas.width, canvas.height);
 
-    const name = this.name.length > 12 ? this.name.substring(0, 12) + '...': this.name;
+    const name = this.name.length > 15 ? this.name.substring(0, 15) + '...': this.name;
 
-    ctx.font = 'bold 36px Monocraft';
+    ctx.font = 'bold 32px Monocraft';
     ctx.fillStyle = '#FFFFFF';
     ctx.textAlign = 'start';
     ctx.strokeStyle = '#f7f7f7';
@@ -166,9 +166,9 @@ class Welcomer {
     ctx.strokeRect(0,0, canvas.width, canvas.height);
     ctx.drawImage(layer,0,0, canvas.width, canvas.height);
 
-    const name = this.name.length > 12 ? this.name.substring(0, 12) + '...' : this.name;
+    const name = this.name.length > 15 ? this.name.substring(0, 15) + '...' : this.name;
 
-    ctx.font = `bold 36px Monocraft`;
+    ctx.font = `bold 32px Monocraft`;
     ctx.fillStyle = '#FFFFFF';
     ctx.textAlign = 'start';
     ctx.strokeStyle = '#f5f5f5';
