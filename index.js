@@ -42,7 +42,7 @@ function discordRPCstatus() {
 
   
   client.user.setActivity({
-    name:`${userCount - 2} Players in MMUCraft`,
+    name:`${userCount - 3} Players in MMUCraft`,
     type: Discord.ActivityType.Watching,
     state: "minecraft.mmu.edu.my",
     details: "MMUCraft",
