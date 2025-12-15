@@ -56,6 +56,10 @@ client.once("clientReady", () => {
 });
 
 client.on('interactionCreate', async interaction => {
+
+  const autoThreadReactor = require('./events/autoThreadReactor.js');
+  await autoThreadReactor.handleInteraction(interaction);
+
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
