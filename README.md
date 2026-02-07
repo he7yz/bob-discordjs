@@ -1,10 +1,10 @@
 <div align="center">
-  <img alt="MMUCraft" src="https://cdn.discordapp.com/attachments/1415013676749946885/1415313134973095956/MMUCRAFT2-removebg-preview.png?ex=69809892&is=697f4712&hm=7ad6b07cf7dedd57749def497656d7610e795f272b00d5b24e63c814f4ec0899&=&format=webp&quality=lossless" height ="150" width="150"></img>
+  <img alt="MMUCraft" src="https://cdn.discordapp.com/icons/1415012956038627541/94adaecc79816ea165fc75936c9c5181.webp?size=1024" height ="100" width="100"></img>
   <br />
   <img alt="Bob" src="https://cdn.discordapp.com/avatars/1416043684360622180/4238a5462d6adb241da8cc36d6218fc3.webp?size=1024" height="250" width="250"></img>
   <h2 align="center">Bob</h2>
   <h3 align="center">A discord.js Bot, tailor-made for MMUCraft Discord</h3>
-  <img alt="MMUCraft" src="https://media.discordapp.net/attachments/1448721985155891343/1449058526365483008/BannerCommish_20251212232034.png?ex=6980c0ea&is=697f6f6a&hm=24f897047b67a635edf8570854e888e77ebf986f6de7c184f21b8a1fad1cb501&=&format=webp&quality=lossless&width=1604&height=902" height ="1080" width="1920"></img>
+  <img alt="MMUCraft" src="https://cdn.discordapp.com/attachments/1448721985155891343/1449058526365483008/BannerCommish_20251212232034.png?ex=6988a9ea&is=6987586a&hm=777362495549594fa2c9f5141404a0c2f85d1aab6cdabdeb9221f28313bf9165&=&format=webp&quality=lossless&width=1604&height=902" height ="1080" width="1920"></img>
   <br />
 </div>
 
